@@ -12,6 +12,35 @@
         <header>
             <h1>Library</h1>
         </header>
+        <button class="open-modal" type="button">Add new book</button>
+        <dialog class="modal">
+            <h2>Adding new book</h2>
+            <form class="modal-form" method="dialog">
+                <div class="field">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="field">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author">
+                </div>
+                <div class="field">
+                    <label for="pages">Number of pages:</label>
+                    <input type="number" id="pages" name="pages">
+                </div>
+                
+                <fieldset class="has-read">
+                    <legend>Have you read this book?</legend>
+                    <input type="radio" id="yes" value="true" name="hasRead">
+                    <label for="yes">Yes</label>
+
+                    <input type="radio" id="no" value="false" name="hasRead">
+                    <label for="no">No</label>
+                </fieldset>
+                <button class="submit-modal" type="button">Submit</button>
+            </form>
+            <button class="close-modal">Close</button>
+        </dialog>
         <main class="displayBooks">
         </main>
     </div>

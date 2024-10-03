@@ -22,7 +22,7 @@ function displayBook(book) {
 
     for (key in book) {
         if (key === 'title') {
-            const bookTitle = document.createElement('h3');
+            const bookTitle = document.createElement('h2');
             bookTitle.textContent = `${book[key]}`;
             bookElement.insertBefore(bookTitle, authorPagesDiv);
         } else if (key === 'read') {
@@ -63,3 +63,18 @@ document.addEventListener("displayBooks", () => {
 })
 
 document.dispatchEvent(displayBooksEvent);
+
+/* Modal */
+const modal = document.querySelector('.modal');
+const openModal = document.querySelector('.open-modal');
+const closeModal = document.querySelector('.close-modal');
+
+openModal.addEventListener('click', () => {
+    modal.showModal();
+})
+
+closeModal.addEventListener('click', () => {
+    modal.close();
+})
+
+

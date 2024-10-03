@@ -12,12 +12,7 @@ function addBookToLibrary(bookObject) {
     myLibrary.push(bookObject);
 }
 
-const newBook = new Book('Te dejé ir', true, 'Clare Mackintosh', '451');
-const newBook2 = new Book('Entre tonos de gris', false, 'Ruta Sepetis', '555');
-addBookToLibrary(newBook);
-addBookToLibrary(newBook2);
-
-myLibrary.forEach(book => {
+function displayBook(book) {
     const bookElement = document.createElement('div');
     bookElement.classList.add("book");
 
@@ -50,6 +45,21 @@ myLibrary.forEach(book => {
             authorPagesDiv.appendChild(pagesP);
         }
     }
+    bookShelf.appendChild(bookElement)
+}
 
-    bookShelf.appendChild(bookElement)})
+const newBook = new Book('Te dejé ir', true, 'Clare Mackintosh', '451');
+const newBook2 = new Book('Entre tonos de gris', false, 'Ruta Sepetis', '555');
+addBookToLibrary(newBook);
+addBookToLibrary(newBook2);
 
+const displayBooksEvent = new Event("displayBooks");
+
+document.addEventListener("displayBooks", () => {
+    bookShelf.textContent = "";
+    myLibrary.forEach(book => {
+        displayBook(book);
+    });
+})
+
+document.dispatchEvent(displayBooksEvent);

@@ -57,7 +57,13 @@ function displayBook(book, index) {
     removeButton.setAttribute("id", "remove-book");
     removeButton.textContent = 'Remove';
 
+    const changeReadStatusButton = document.createElement('button');
+    changeReadStatusButton.setAttribute("id", "change-read-status");
+    changeReadStatusButton.textContent = "Change read status";
+
+    
     buttonsDiv.appendChild(removeButton);
+    buttonsDiv.appendChild(changeReadStatusButton);
     bookElement.insertBefore(buttonsDiv, authorPagesDiv);
 
     bookShelf.appendChild(bookElement);

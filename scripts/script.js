@@ -8,8 +8,8 @@ function Book(title, read, author, pages) {
     this.pages = pages;
 }
 
-Book.prototype.changeReadStatus = function(readStatus) {
-    this.read = readStatus ? false : true;
+Book.prototype.changeReadStatus = function() {
+    this.read = this.read ? false : true;
 }
 
 function addBookToLibrary(bookObject) {
@@ -111,7 +111,7 @@ modalForm.addEventListener("submit", (e) => {
     modal.close();
 })
 
-/* Remove book */
+/* Remove book / change read status*/
 bookShelf.addEventListener("click", (e) => {
     if (e.target.id === 'remove-book') {
         const book = e.target.parentNode.parentNode;
@@ -121,5 +121,13 @@ bookShelf.addEventListener("click", (e) => {
         book.remove();
         
         document.dispatchEvent(displayBooksEvent);
+    } else if (e.target.id === 'change-read-status') {
+        const book = e.target.parentNode.parentNode;
+        const status = e.target.parentNode.previousSibling;
+        const indexBook = book.dataset.index;
+
+        myLibrary[indexBook].changeReadStatus();
+        
+        status.textContent = status.textContent === '❌' ? '✅' : '❌';
     }
 })

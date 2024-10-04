@@ -69,8 +69,8 @@ function displayBook(book, index) {
     bookShelf.appendChild(bookElement);
 }
 
-const newBook = new Book('Te dejé ir', true, 'Clare Mackintosh', '451');
-const newBook2 = new Book('Entre tonos de gris', false, 'Ruta Sepetis', '555');
+const newBook = new Book('Te dejé ir', true, 'Clare Mackintosh', '432');
+const newBook2 = new Book('Entre tonos de gris', false, 'Ruta Sepetys', '321');
 addBookToLibrary(newBook);
 addBookToLibrary(newBook2);
 

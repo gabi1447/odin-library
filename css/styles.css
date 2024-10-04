@@ -4,6 +4,22 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: 'my_underwoodregular';
+    src: url('../fonts/myunderwood-webfont.woff2') format('woff2'),
+        url('../fonts/myunderwood-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'over_the_rainbowregular';
+    src: url('../fonts/overtherainbow-webfont.woff2') format('woff2'),
+        url('../fonts/overtherainbow-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
@@ -44,6 +60,10 @@ body {
     font-weight: bold;
     font-size: 0.9rem;
     cursor: pointer;
+}
+
+button.open-modal:hover {
+    box-shadow: 0 0 5px 1px #f6eee3;
 }
 
 .modal {
@@ -138,7 +158,12 @@ body {
 
 .book > .buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.buttons button:hover {
+    box-shadow: 0 0 3px 1px #161010;
 }
 
 .book > .buttons button {
@@ -154,6 +179,7 @@ body {
 .book .author-pages-div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-weight: bold;
 }
 
@@ -161,7 +187,12 @@ body {
     content: 'By ';
 }
 
+.author-p {
+    font-family: 'over_the_rainbowregular';
+}
+
 .book h2 {
     text-align: center;
     margin-bottom: 1rem;
+    font-family: 'my_underwoodregular';
 }

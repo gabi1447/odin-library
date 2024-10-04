@@ -128,11 +128,27 @@ body {
     padding: 1rem;
     background-color: #f6eee3;
     border-radius: 0.5rem;
+    color: #161010;
 }
 
 .book > p {
     align-self: center;
     font-size: 500%;
+}
+
+.book > .buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.book > .buttons button {
+    padding: 0.5rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    color: #f6eee3;
+    background-color: #161010;
 }
 
 .book .author-pages-div {

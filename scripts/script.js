@@ -12,9 +12,10 @@ function addBookToLibrary(bookObject) {
     myLibrary.push(bookObject);
 }
 
-function displayBook(book) {
+function displayBook(book, index) {
     const bookElement = document.createElement('div');
     bookElement.classList.add("book");
+    bookElement.setAttribute("data-index", index);
 
     const authorPagesDiv = document.createElement('div');
     authorPagesDiv.classList.add("author-pages-div");
@@ -45,7 +46,17 @@ function displayBook(book) {
             authorPagesDiv.appendChild(pagesP);
         }
     }
-    bookShelf.appendChild(bookElement)
+    const buttonsDiv = document.createElement('div');
+    buttonsDiv.classList.add("buttons");
+
+    const removeButton = document.createElement('button');
+    removeButton.setAttribute("id", "remove-book");
+    removeButton.textContent = 'Remove';
+
+    buttonsDiv.appendChild(removeButton);
+    bookElement.insertBefore(buttonsDiv, authorPagesDiv);
+
+    bookShelf.appendChild(bookElement);
 }
 
 const newBook = new Book('Te dejé ir', true, 'Clare Mackintosh', '451');
@@ -57,8 +68,8 @@ const displayBooksEvent = new Event("displayBooks");
 
 document.addEventListener("displayBooks", () => {
     bookShelf.textContent = "";
-    myLibrary.forEach(book => {
-        displayBook(book);
+    myLibrary.forEach((book, index) => {
+        displayBook(book, index);
     });
 })
 
@@ -90,4 +101,15 @@ modalForm.addEventListener("submit", (e) => {
     modal.close();
 })
 
-
+/* Remove book */
+bookShelf.addEventListener("click", (e) => {
+    if (e.target.id === 'remove-book') {
+        const book = e.target.parentNode.parentNode;
+        const indexBook = book.dataset.index;
+        
+        myLibrary.splice(indexBook, 1);
+        book.remove();
+        
+        document.dispatchEvent(displayBooksEvent);
+    }
+})

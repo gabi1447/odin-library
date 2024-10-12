@@ -1,15 +1,16 @@
 const myLibrary = [];
 const bookShelf = document.querySelector('.displayBooks');
 
-function Book(title, read, author, pages) {
-    this.title = title;
-    this.read = read;
-    this.author = author;
-    this.pages = pages;
-}
-
-Book.prototype.changeReadStatus = function() {
-    this.read = this.read ? false : true;
+class Book {
+    constructor(title, read, author, pages) {
+        this.title = title;
+        this.read = read;
+        this.author = author;
+        this.pages = pages;
+    }
+    changeReadStatus() {
+        this.read = this.read ? false : true;
+    }
 }
 
 function addBookToLibrary(bookObject) {
